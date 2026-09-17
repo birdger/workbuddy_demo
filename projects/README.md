@@ -6,4 +6,8 @@
 |---|---|---|
 | [git-heatmap](./git-heatmap) | Python | 终端版 Git 贡献热力图，单文件零依赖 |
 
+部分项目同步维护独立仓库（欢迎单独 star ⭐）：
+
+- **git-heatmap** → [GitHub](https://github.com/birdger/git-heatmap) · [Gitee](https://gitee.com/ou-lingqiao/git-heatmap) · [GitCode](https://gitcode.com/OuGod/git-heatmap) · [极狐GitLab](https://jihulab.com/birdger/git-heatmap)
+
 > 每周六的定时任务还会在这里创建新的迷你项目。
