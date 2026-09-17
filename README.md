@@ -1,37 +1,34 @@
-# workbuddy_demo
+# workbuddy_demo 🤖
 
-#### 介绍
-workbuddy_demo
+> 每日自动更新的 AI 资讯 × 技术小知识 × 代码 demo 合集
+> 由 [WorkBuddy](https://www.workbuddy.cn) 智能体每天早上 9 点自动生成并推送
 
-#### 软件架构
-软件架构说明
+## 📦 内容板块
 
+| 板块 | 目录 | 说明 |
+|---|---|---|
+| 📰 AI 日报 | [`daily/`](./daily) | 每天检索全网 AI 大模型动态，精选 5-8 条带摘要 |
+| 💡 每日一技 | [`daily/`](./daily) | 编程技巧 / 命令行秘籍 / 工具用法，一天一个知识点 |
+| 🎲 趣闻杂烩 | [`daily/`](./daily) | 历史上的今天 × 科技趣闻 × 名言 |
+| 🧪 代码 demo | [`snippets/`](./snippets) | 可运行的小代码示例，Python / Java / JS / Shell 轮换 |
+| 🛠️ 小项目 | [`projects/`](./projects) | 周末不定期更新的迷你工具（Java / Python） |
 
-#### 安装教程
+## 📅 更新日志
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+| 日期 | 日报 | Demo |
+|---|---|---|
+| 2026-09-17 | [daily/2026-09/2026-09-17.md](./daily/2026-09/2026-09-17.md) | [Python 计时装饰器](./snippets/2026-09-17/) |
 
-#### 使用说明
+## 🔁 多平台同步
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+本仓库同时推送至：[Gitee](https://gitee.com/ou-lingqiao/workbuddy_demo) · [GitCode](https://gitcode.com/OuGod/workbuddy_demo) · [GitHub](https://github.com/birdger/workbuddy_demo) · [极狐GitLab](https://jihulab.com/birdger/workbuddy_demo)
 
-#### 参与贡献
+## ⚙️ 工作方式
 
-1.  Fork 本仓库
-2.  新建 Feat_xxx 分支
-3.  提交代码
-4.  新建 Pull Request
+1. WorkBuddy 定时任务每天 09:00 启动
+2. 自动检索当日 AI 资讯 → 生成日报 + 小知识 + 趣闻 + 代码 demo
+3. `scripts/daily_push.py` 统一提交并推送到四个平台
 
+---
 
-#### 特技
-
-1.  使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
-2.  Gitee 官方博客 [blog.gitee.com](https://blog.gitee.com)
-3.  你可以 [https://gitee.com/explore](https://gitee.com/explore) 这个地址来了解 Gitee 上的优秀开源项目
-4.  [GVP](https://gitee.com/gvp) 全称是 Gitee 最有价值开源项目，是综合评定出的优秀开源项目
-5.  Gitee 官方提供的使用手册 [https://gitee.com/help](https://gitee.com/help)
-6.  Gitee 封面人物是一档用来展示 Gitee 会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
+*本仓库内容为自动化生成 + 整理，转载请注明各新闻原始来源。*
