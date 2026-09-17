@@ -80,7 +80,7 @@ def main():
         v = os.environ.get(var)
         if v and v not in candidates:
             candidates.append(v)
-    candidates += ["http://127.0.0.1:4556", "http://127.0.0.1:7890",
+    candidates += ["http://127.0.0.1:7892", "http://127.0.0.1:4556", "http://127.0.0.1:7890",
                    "http://127.0.0.1:7897", "http://127.0.0.1:10809",
                    "http://127.0.0.1:9695", None]  # None = 直连
     gh_ok = False
@@ -92,8 +92,55 @@ def main():
             break
         time.sleep(1)
     if not gh_ok:
+        # 兜底：扫描本机所有监听端口，找一个能通 GitHub 的代理
+        print("[INFO] 常规代理均不通，扫描本机端口...")
+        for p in _scan_local_proxies():
+            ok, out = git("push", "github", "main", proxy=f"http://127.0.0.1:{p}")
+            if ok:
+                gh_ok = True
+                print(f"[OK] github（经扫描到的代理 127.0.0.1:{p}）")
+                break
+            time.sleep(0.5)
+    if not gh_ok:
         print("[SKIP] github 暂不可达（代理/网络未恢复），下次运行自动补推")
     results["github"] = gh_ok
+
+def _scan_local_proxies():
+    """枚举本机监听端口，返回经测试能访问 github 的 HTTP 代理端口列表"""
+    import socket
+    ports = set()
+    try:
+        out = subprocess.run(["netstat", "-ano"], capture_output=True, text=True,
+                             encoding="gbk", errors="replace").stdout or ""
+        for line in out.splitlines():
+            if "LISTENING" not in line:
+                continue
+            try:
+                addr = line.split()
+                port = int(addr[1].rsplit(":", 1)[1])
+                if 0 < port < 65536:
+                    ports.add(port)
+            except (IndexError, ValueError):
+                continue
+    except Exception:
+        pass
+    good = []
+    for port in sorted(ports):
+        if port in (135, 139, 445):  # 系统端口跳过
+            continue
+        try:
+            s = socket.create_connection(("127.0.0.1", port), timeout=0.3)
+            s.close()
+        except OSError:
+            continue
+        # 用 curl 实测能否代理访问 github
+        r = subprocess.run(
+            ["curl", "-s", "-o", os.devnull, "-w", "%{http_code}",
+             "-x", f"http://127.0.0.1:{port}", "-m", "4", "https://github.com/"],
+            capture_output=True, text=True)
+        if (r.stdout or "").strip() == "200":
+            good.append(port)
+    return good
 
     ok_count = sum(results.values())
     print(f"\n推送完成：{ok_count}/4 个平台成功")
