@@ -4,6 +4,7 @@
 
 | 项目 | 语言 | 说明 |
 |---|---|---|
+| [dirsize](./dirsize) | Python | 终端目录体积分析器（dust 精简版），条形图直出，零依赖 |
 | [git-heatmap](./git-heatmap) | Python | 终端版 Git 贡献热力图，单文件零依赖 |
 
 部分项目同步维护独立仓库（欢迎单独 star ⭐）：

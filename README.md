@@ -17,6 +17,7 @@
 
 | 日期 | 日报 | Demo | 小项目 |
 |---|---|---|---|
+| 2026-09-19 | [daily/2026-09/2026-09-19.md](./daily/2026-09/2026-09-19.md) | [JS Object.groupBy](./snippets/2026-09-19/) | [dirsize 目录体积分析](./projects/dirsize/) |
 | 2026-09-18 | [daily/2026-09/2026-09-18.md](./daily/2026-09/2026-09-18.md) | [Java try-with-resources](./snippets/2026-09-18/) | — |
 | 2026-09-17 | [daily/2026-09/2026-09-17.md](./daily/2026-09/2026-09-17.md) | [Python 计时装饰器](./snippets/2026-09-17/) | [git-heatmap 终端热力图](./projects/git-heatmap/) |
 
